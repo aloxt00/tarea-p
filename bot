@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
-
+from logic import gen_pass
+from logic import flip_coin
 intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
@@ -14,6 +15,19 @@ async def on_ready():
 @bot.command()
 async def hello(ctx):
     await ctx.send(f'Hola, soy un bot {bot.user}!')
+
+
+
+@bot.command()
+async def contra(ctx):
+    await ctx.send(gen_pass(10))
+
+@bot.command()
+async def flip(ctx):
+    await ctx.send(flip_coin())
+
+
+
 
 @bot.command()
 async def joined(ctx, member: discord.Member):
