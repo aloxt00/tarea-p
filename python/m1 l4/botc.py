@@ -38,4 +38,4 @@ async def joined(ctx, member: discord.Member):
 async def heh(ctx, count_heh = 5):
     await ctx.send("he" * count_heh)
 
-bot.run("MTI0Mjk4ODg4MjUwOTY5NzA2NQ.GcdoXK.ogmzG2vqoyuXoAnPn4j3L7m2OHUVImZAtzp9Uk")
+bot.run(")
