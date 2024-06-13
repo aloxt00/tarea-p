@@ -1,0 +1,34 @@
+import discord
+from discord.ext import commands
+import os, random, requests
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='%', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Ha iniciado sesión como {bot.user}')
+@bot.command()
+async def carton(ctx):
+    mu_c = ["https://cl.video.search.yahoo.com/search/video;_ylt=AwrNY7h.L2pmW.4OLWZjfgx.;_ylu=Y29sbwNiZjEEcG9zAzEEdnRpZAMEc2VjA3Nj?p=manualidades+con+carton&type=E211CL885G0&ei=UTF-8&fr=mcafee&turl=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOVP.WIx9cmRfDtthUKVb5msoNwHgFo%26pid%3DApi%26w%3D296%26h%3D156%26c%3D7%26p%3D0&rurl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Df6-BXv8Ryoc&tit=15+Manualidades+F%C3%81CILES+Y+R%C3%81PIDAS+con+cart%C3%B3n+%28RECICLAJE%29&pos=1&vid=77f5b13c6aa29a3420e0cc6b1486192c&sigr=HzTmuseg7mR6&sigt=N48bA60yHFi_&sigi=jta2P4Q4NXhx",
+            "https://r.search.yahoo.com/_ylt=AwrNY7h.L2pmW.4OQWZjfgx.;_ylu=Y29sbwNiZjEEcG9zAzUEdnRpZAMEc2VjA3Ny/RV=2/RE=1718263806/RO=10/RU=https%3a%2f%2fwww.umamanualidades.com%2fcarton%2fcajas-de-carton%2f/RK=2/RS=qgYrBVysLX57uVeprmHXq_8o1eY-",
+            "https://r.search.yahoo.com/_ylt=AwrNYkZ6MWpmQPIOVS5jfgx.;_ylu=Y29sbwNiZjEEcG9zAzYEdnRpZAMEc2VjA3Ny/RV=2/RE=1718264315/RO=10/RU=https%3a%2f%2fwww.manualidadesapasos.com%2fpapel-y-carton%2f/RK=2/RS=v2eEgdKjUHI68ago_MBIKqkQetc-"]
+    car = random.choice(mu_c)
+    await ctx.send(car)
+@bot.command()
+async def vidrio(ctx):
+    mu_v = ["https://cl.video.search.yahoo.com/search/video;_ylt=Awrig2rDMmpmqVIPsB9jfgx.;_ylu=Y29sbwNiZjEEcG9zAzEEdnRpZAMEc2VjA3Nj?p=manualidades+con+vidrio&type=E211CL885G0&ei=UTF-8&fr=mcafee&turl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOVP.rQHoZwuKb8tBKb6Ei8UipQEsDh%26pid%3DApi%26w%3D296%26h%3D156%26c%3D7%26p%3D0&rurl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DVrNNSYgTK5k&tit=5+Manualidades+F%C3%A1ciles+y+R%C3%A1pidas+con+frascos+de+vidrio&pos=1&vid=68f5f564dd8b61fde1878e1f3305dd99&sigr=OPkYDnYTSPm1&sigt=q63MG1SJyQ_f&sigi=3QehvljE48M3",
+            "https://r.search.yahoo.com/_ylt=Awrig2rDMmpmqVIPtR9jfgx.;_ylu=Y29sbwNiZjEEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1718264643/RO=10/RU=https%3a%2f%2fwww.creacioneserika.es%2fmanualidades-con-botella-de-vidrio-60-inspiraciones-y-consejos%2f/RK=2/RS=pot_O_X5uIMqj0PRZFC1QLd9yJY-",
+            "https://r.search.yahoo.com/_ylt=AwrNYkZHM2pmnB8Obzpjfgx.;_ylu=Y29sbwNiZjEEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1718264775/RO=10/RU=https%3a%2f%2fwww.youtube.com%2fwatch%3fv%3dGrqTRKEAI2U/RK=2/RS=c7U.aTgDywn4yUovdjKkq.Ti2Vg-"]
+    vid = random.choice(mu_v)
+    await ctx.send(vid)
+@bot.command()
+async def papel(ctx):
+    mu_p = ["https://r.search.yahoo.com/_ylt=AwrNZXLUM2pmnvkODEljfgx.;_ylu=Y29sbwNiZjEEcG9zAzIEdnRpZAMEc2VjA3Ny/RV=2/RE=1718264916/RO=10/RU=https%3a%2f%2fwww.youtube.com%2fwatch%3fv%3d47ejbROR8ho/RK=2/RS=OfoaETxyi1BruLXC4uxEErbMOC8-",
+            "https://r.search.yahoo.com/_ylt=AwrNaZApNGpm4NwO671jfgx.;_ylu=Y29sbwNiZjEEcG9zAzQEdnRpZAMEc2VjA3Ny/RV=2/RE=1718265001/RO=10/RU=https%3a%2f%2fwww.umamanualidades.com%2fpapel%2fmanualidades-con-papel-faciles%2f/RK=2/RS=qunIa1.BeUby_6Kzlbq95dzlxJ4-",
+            "https://r.search.yahoo.com/_ylt=AwriitxWNGpm.3sOyOBjfgx.;_ylu=Y29sbwNiZjEEcG9zAzcEdnRpZAMEc2VjA3Ny/RV=2/RE=1718265047/RO=10/RU=https%3a%2f%2fmamay1000cosasmas.com%2f12-manualidades-faciles-con-papel%2f/RK=2/RS=U0X_nGQ_0CdbohDgowq3EPpEQTY-"]
+    pap = random.choice(mu_p)
+    await ctx.send(pap)
+
+bot.run("to token")
+#https://discord.com/oauth2/authorize?client_id=1250593504883769364&permissions=8&integration_type=0&scope=bot
